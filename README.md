@@ -48,9 +48,6 @@ Purchases are rare: among promoted customers, the data the model learns from, th
 ## How to run
 
 ```bash
-git clone <your-repo-url>
-cd Targeted-Promotion-Optimisation
-
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -67,9 +64,3 @@ To open the full analysis, with charts and explanations of every step:
 ```bash
 jupyter notebook Starbucks_Promotion_Optimisation.ipynb
 ```
-
-## Limitations and next steps
-
-- **The model finds customers who buy when promoted, not customers who buy *because* of the promotion.** Some would have bought anyway. Uplift modelling, such as a T-learner that compares models trained on promoted and control customers, targets the extra buyers directly and is the natural next step.
-- **SMOTE inflates the predicted probabilities.** The model's average is about 35% against a real purchase rate of 1.7%, so the scores work for ranking customers but aren't true probabilities. Class weights are an alternative that avoids synthetic data.
-- **The features are anonymised**, so the customer groups the model selects can't be described in business terms.
